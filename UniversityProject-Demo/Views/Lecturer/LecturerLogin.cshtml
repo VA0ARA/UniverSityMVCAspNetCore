@@ -1,0 +1,42 @@
+﻿@model UniversityProject_Demo.Models.Entity.Lecturer
+<h2 class="mb-5">
+    صفحه ورود استاد
+</h2>
+<form class="border border-1 p-5" asp-controller="Lecturer" asp-action="LecturerLogin" method="post">
+@*    <div class="mb-3">
+        <label class="form-label" asp-for="Id"></label>
+        <input class="form-control" asp-for="Id" readonly />
+    </div>*@
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="user" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PassWord</label>
+        <input type="text" name="pass" />
+    </div>
+    <input type="submit" class="btn btn-success" value="ورود"  />
+    </form>
+<a class="btn btn-outline-secondary"
+   asp-controller="Lecturer" asp-action="LecturerRegister">ثبت نام</a>
+<a class="btn btn-outline-secondary"
+   asp-controller="Home" asp-action="Index">بازگشت</a>
+
+
+
+
+
+
+
+
+
+@*<td>
+    <form asp-controller="Student" asp-action="StudentPanel" asp-route-id="@Model.Id"  method="post">
+        <input class="btn btn-success" value="" />
+    </form>
+</td>
+*@
+
+
+
+@*        asp-route-id="@Model.Id"*@

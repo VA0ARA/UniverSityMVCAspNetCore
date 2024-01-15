@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home University";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome To Uninversity</h1>
+    <h2 class="display-4">LoginPage</h2>
+</div>
+<form class="row g-3">
+@*    <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input type="password"  class="form-control" id="Email" placeholder="UserName" >
+    </div>
+    <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+    </div>*@
+    <a class="btn btn-success mb-3"
+       asp-controller="Student" asp-action="StudentLogin">پنل دانشجو</a>
+@*    <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input type="password" class="form-control" id="Email" placeholder="UserName">
+    </div>
+    <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+    </div>*@
+    <a class="btn btn-success mb-3"
+       asp-controller="Lecturer" asp-action="LecturerLogin">پنل استاد</a>
+    @* <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+    </div>
+    <div class="col-auto">
+    <button type="submit" class="btn btn-success mb-3">Register</button>
+    </div>*@
+
+
+
+
+</form>

@@ -1,0 +1,44 @@
+﻿@model UniversityProject_Demo.Models.Entity.Course
+<h2 class="mb-5">
+    ساخت  درس
+</h2>
+<form class="border border-1 p-5" asp-controller="Lecturer" asp-action="CreateCourse" method="post">
+    <div class="mb-3">
+        <label class="form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Time"></label>
+        <input class="form-control" asp-for="Time" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="credit"></label>
+        <input class="form-control" asp-for="credit" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Mark"></label>
+        <input class="form-control" asp-for="Mark" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="capacity"></label>
+        <input class="form-control" asp-for="capacity" />
+    </div>
+@*    <div class="mb-3">
+        <label class="form-label" asp-for="lectuerer.LastName"></label>
+        <input class="form-control" asp-for="lectuerer.LastName" />
+    </div>*@
+
+    <input type="submit" class="btn btn-success" value="ذخیره" />
+
+
+
+
+
+
+
+
+
+
+@*    <a class="btn btn-outline-secondary"
+       asp-controller="Product" asp-action="Index">بازگشت</a>*@
+</form>

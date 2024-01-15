@@ -1,0 +1,40 @@
+﻿@model UniversityProject_Demo.Models.Entity.Lecturer
+
+<h2 class="mb-5">
+    ساخت اکانت استاد
+</h2>
+
+<form class="border border-1 p-5" asp-controller="Lecturer" asp-action="LecturerRegister" method="post">
+@*    <div class="mb-3">
+        <label class="form-label" asp-for="Id"></label>
+        <input class="form-control" asp-for="Id" />
+    </div>*@
+    <div class="mb-3">
+        <label class="form-label" asp-for="FirstName"></label>
+        <input class="form-control" asp-for="FirstName" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="LastName"></label>
+        <input class="form-control" asp-for="LastName" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="PassWord"></label>
+        <input class="form-control" asp-for="PassWord" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="UserName"></label>
+        <input class="form-control" asp-for="UserName" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Time"></label>
+        <input class="form-control" asp-for="Time" />
+    </div>
+    <input type="submit" class="btn btn-success" value="ذخیره" />
+
+@*    <a class="btn btn-outline-secondary"
+       asp-controller="Product" asp-action="Index">بازگشت</a>*@
+</form>
