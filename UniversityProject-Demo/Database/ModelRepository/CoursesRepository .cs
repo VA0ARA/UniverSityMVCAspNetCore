@@ -56,6 +56,7 @@ namespace UniversityProject_Demo.Database.ModelRepository
             newentity.credit = entity.credit;
             newentity.Time = entity.Time;
             newentity.capacity=entity.capacity;
+            newentity.Mark = entity.Mark;
             entity.lectuerer = DataBase.CurrenLectures;
             ObjSerialization.SerializeListOfData(Courses, FilePath);
             return true;

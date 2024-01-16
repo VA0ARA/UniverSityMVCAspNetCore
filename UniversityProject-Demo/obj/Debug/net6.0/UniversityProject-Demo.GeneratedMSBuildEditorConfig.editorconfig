@@ -76,8 +76,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxDcmVhdGVTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Project/UniversityProject-Demo/UniversityProject-Demo/Views/Student/GetAllCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRBbGxDb3Vyc2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project/UniversityProject-Demo/UniversityProject-Demo/Views/Student/GetAllStudents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRBbGxTdHVkZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/UniversityProject-Demo/UniversityProject-Demo/Views/Student/SelectCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTZWxlY3RDb3Vyc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project/UniversityProject-Demo/UniversityProject-Demo/Views/Student/StudentLogin.cshtml]

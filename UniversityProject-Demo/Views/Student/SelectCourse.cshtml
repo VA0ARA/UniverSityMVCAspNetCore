@@ -1,0 +1,65 @@
+﻿@*@model UniversityProject_Demo.Models.Entity.Course*@
+<h2 class="mb-5">
+    انتخاب درس
+</h2>
+<table class="table table-hover table-bordered table-responsive w-100">
+    <tr>
+        <td>شناسه</td>
+        <td>عنوان</td>
+        <td>زمان</td>
+        <td>واحد</td>
+        <td>نمره</td>
+        <td>نام استاد</td>
+        <td>ظرفیت</td>
+    </tr>
+    @foreach (var course in Model)
+    {
+        <tr>
+            <td>@course.Id</td>
+            <td>@course.Name</td>
+            <td>@course.Time</td>
+            <td>@course.credit</td>
+            <td>@course.Mark</td>
+            <td>@course.lectuerer.LastName</td>
+            <td>@course.capacity</td>
+            <td>
+                <form asp-controller="Student" asp-action="SelectCourse" asp-route-id="@course.Id" method="post">
+                    <input type="submit" class="btn-sm btn-danger" value="اضافه">
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<a class="btn-sm btn-success" asp-controller="Student" asp-action="StudentPanel">پروفایل دانشجو</a>
+
+
+@*asp-route-id="@course.Id"*@
+
+@*@model UniversityProject_Demo.Models.Entity.Course
+<h2 class="mb-5">
+    انتخاب درس
+</h2>
+<form class="border border-1 p-5" asp-controller="Lecturer" asp-action="CreateCourse" method="post">
+    <div class="mb-3">
+        <label class="form-label" asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Time"></label>
+        <input class="form-control" asp-for="Time" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="credit"></label>
+        <input class="form-control" asp-for="credit" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Mark"></label>
+        <input class="form-control" asp-for="Mark" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="capacity"></label>
+        <input class="form-control" asp-for="capacity" />
+    </div>
+    <input type="submit" class="btn btn-success" value="ذخیره" />
+</form>
+*@

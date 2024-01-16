@@ -1,0 +1,47 @@
+﻿@*@model UniversityProject_Demo.Models.Entity.Course*@
+<h1>لیست درس ها</h1>
+<table class="table table-hover table-bordered table-responsive w-100">
+    <tr>
+        <td>شناسه</td>
+        <td>عنوان</td>
+        <td>زمان</td>
+        <td>واحد</td>
+        <td>نمره</td>
+        <td>نام استاد</td>
+        <td>ظرفیت</td>
+    </tr>
+    @foreach (var course in Model)
+    {
+        <tr>
+            <td>@course.Id</td>
+            <td>@course.Name</td>
+            <td>@course.Time</td>
+            <td>@course.credit</td>
+            <td>@course.Mark</td>
+            <td>@course.lectuerer.LastName</td>
+            <td>@course.capacity</td>
+            <td>
+                <form asp-controller="Student" asp-action="SelectCourse" asp-route-id="@course.Id" method="post">
+                    <input type="submit" class="btn-sm btn-danger" value="حذف">
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<a class="btn-sm btn-success" asp-controller="Student" asp-action="StudentPanel">پروفایل دانشجو</a>
+
+
+
+@*<a class="btn-sm btn-success" asp-controller="Courses" asp-action="Create">درس جدید</a>*@
+
+
+@*            <td><a class="btn-sm btn-info" asp-controller="Product" asp-action="Details" asp-route-id="@product.Id">مشاهده جزئیات</a></td>
+
+            <td><a class="btn-sm btn-warning" asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id">ویرایش</a></td>
+
+            <td>
+                <form asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" method="post">
+                    <input type="submit" class="btn-sm btn-danger" value="حذف">
+                </form>
+
+            </td>*@

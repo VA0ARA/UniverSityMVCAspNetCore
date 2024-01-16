@@ -55,7 +55,8 @@ namespace UniversityProject_Demo.Database.ModelRepository
                 newentity.Email = entity.Email; 
                 newentity.PassWord=entity.PassWord;
                 newentity.UserName=entity.UserName;
-               Students.Add(newentity);
+                newentity.Courses= entity.Courses;
+                //Students.Add(newentity);
                 ObjSerialization.SerializeListOfData(Students, FilePath);
                 return true;
           //  }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UniversityProject_Demo.Database;
 using UniversityProject_Demo.Database.ModelRepository;
+using UniversityProject_Demo.Models.DTOs;
 using UniversityProject_Demo.Models.Entity;
 using UniversityProject_Demo.Services;
 
@@ -10,6 +11,8 @@ namespace UniversityProject_Demo.Controllers
     {
         StudentRepository StudentsRepo =new StudentRepository();
         LoginServiceStudent ObjLogSt = new LoginServiceStudent();
+        CoursesRepository ObjCoursRepo= new CoursesRepository();
+        public static List<Course> ListTempCourse = new List<Course>();
 
         public IActionResult Index()
         {
@@ -68,11 +71,16 @@ namespace UniversityProject_Demo.Controllers
 
             Student st = ObjLogSt.Login(user, pass);
             DataBase.CurrentStudent= st;
-            return RedirectToAction("StudentPanel",st);
+            //return RedirectToAction("StudentPanel",st);
+            return RedirectToAction("StudentPanel");
         }
         public IActionResult StudentPanel(Student st)
         {
-            return View(st);
+            EntityStudentPanleDto obj = new EntityStudentPanleDto();
+            obj.student = DataBase.CurrentStudent;
+            obj.Courcess = ObjCoursRepo.Courses;
+
+            return View(obj);
         }
 
         #endregion
@@ -89,6 +97,62 @@ namespace UniversityProject_Demo.Controllers
             return RedirectToAction("Index", "Home");
         }
         #endregion
+
+
+        #region Create Course
+        public IActionResult SelectCourse()
+        {
+            var courses=ObjCoursRepo.GetAll();
+            return View(courses);
+        }
+        [HttpPost]
+        public IActionResult SelectCourse(int id)
+        {
+            if (ObjCoursRepo.Get(id) == true  )
+            {
+                var course = ObjCoursRepo.GetById(id);
+                if (course.capacity != 0)
+                {
+                    //add to student list
+                    ListTempCourse.Add(course);
+                    DataBase.CurrentStudent.Courses = new List<Course>();
+                    DataBase.CurrentStudent.Courses = ListTempCourse;
+       /*                    DataBase.CurrentStudent.Courses = new List<Course>()
+                                        {
+                                            course
+                                        };*/
+                    // DataBase.CurrentStudent.Courses.Add(course);
+                    var st =DataBase.CurrentStudent;    
+                    StudentsRepo.Update(st);
+                    //reduce capacity
+                    course.capacity = course.capacity - 1;
+                    //update in database
+                    ObjCoursRepo.Update(course);
+                    return RedirectToAction("GetAllCourse");
+                }
+            }
+/*            else
+            {
+                return RedirectToAction("GetAllCourse");
+            }*/
+            return RedirectToAction("GetAllCourse");
+        }
+        public IActionResult GetAllCourse()
+        {
+            return View(ObjCoursRepo.GetAll());
+        }
+        #endregion
+        #region Delete Course
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            ObjCoursRepo.Delete(Id);
+            return RedirectToAction("GetAllCourse");
+        }
+        #endregion
+
+
+
 
 
     }
