@@ -44,14 +44,14 @@
             <td>@st.role </td>
             <td>@st.Time  </td>
             <td>
-                <form asp-controller="Student" asp-action="DeleteStudent" asp-route-id="@st.Id" method="post">
-                    <input type="submit" class="btn-sm btn-danger" value="حذف">
+                <form asp-controller="Lecturer" asp-action="Mark" asp-route-id="@st.Id" method="post">
+                    <input type="submit" class="btn-sm btn-danger" value="نمره دادن">
                 </form>
             </td>
         </tr>
     }
 </table>
-
+@*asp-route-id="@st.Id"*@
 
 
 

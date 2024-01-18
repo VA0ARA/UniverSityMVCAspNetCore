@@ -3,21 +3,26 @@
     ساخت  درس
 </h2>
 <form class="border border-1 p-5" asp-controller="Lecturer" asp-action="CreateCourse" method="post">
+    <div asp-validation-summary="All"></div>
     <div class="mb-3">
         <label class="form-label" asp-for="Name"></label>
         <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label" asp-for="Time"></label>
         <input class="form-control" asp-for="Time" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label" asp-for="credit"></label>
         <input class="form-control" asp-for="credit" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label" asp-for="Mark"></label>
         <input class="form-control" asp-for="Mark" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label" asp-for="capacity"></label>

@@ -75,10 +75,12 @@ namespace UniversityProject_Demo.Controllers
             obj.lecture = DataBase.CurrenLectures;
             obj.students = StudentRepo.Students;
             return View(obj);
+
         }
-/*        public IActionResult LectutrerPanel()
+/*        [HttpPost]
+        public IActionResult LectutrerPanel(int id)
         {
-            return View(DataBase.CurrenLectures);
+            return View(id);
         }*/
         #endregion
         #region register
@@ -101,8 +103,13 @@ namespace UniversityProject_Demo.Controllers
         [HttpPost]
         public IActionResult CreateCourse(Course co)
         {
-            OBJcourseRepo.Create(co);
-            return RedirectToAction("GetAllCourse");
+/*            if (ModelState.IsValid)
+            {*/
+                TempData["success"] = "create successfully";
+                OBJcourseRepo.Create(co);
+                return RedirectToAction("GetAllCourse");
+/*            }
+            return View();*/
         }
         public IActionResult GetAllCourse()
         {
@@ -116,6 +123,28 @@ namespace UniversityProject_Demo.Controllers
             OBJcourseRepo.Delete(Id);
             return RedirectToAction("GetAllCourse");
         }
+        #endregion
+        #region Mark
+        public IActionResult Mark(int id)
+        {
+            Student st=StudentRepo.GetById(id);
+            EntityStudentPanleDto obj=new EntityStudentPanleDto();
+            obj.student = st;
+            obj.Courcess = st.Courses;
+            return View(obj);
+        }
+/*        [HttpPost]
+        public IActionResult Mark(Course co)
+        {
+
+            return View();
+        }
+*/
+        /*        public IActionResult GetMark(Course co)
+                {
+                    return View(co);
+                }*/
+
         #endregion
 
     }

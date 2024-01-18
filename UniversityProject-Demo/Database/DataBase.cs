@@ -6,7 +6,5 @@ namespace UniversityProject_Demo.Database
     {
         public static Student CurrentStudent=new Student();
         public static Lecturer CurrenLectures = new Lecturer();
-
-   
     }
 }

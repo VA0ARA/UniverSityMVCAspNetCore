@@ -78,7 +78,8 @@ namespace UniversityProject_Demo.Controllers
         {
             EntityStudentPanleDto obj = new EntityStudentPanleDto();
             obj.student = DataBase.CurrentStudent;
-            obj.Courcess = ObjCoursRepo.Courses;
+            //obj.Courcess = ObjCoursRepo.Courses;
+            obj.Courcess = DataBase.CurrentStudent.Courses;
 
             return View(obj);
         }
@@ -99,7 +100,7 @@ namespace UniversityProject_Demo.Controllers
         #endregion
 
 
-        #region Create Course
+        #region Select Course
         public IActionResult SelectCourse()
         {
             var courses=ObjCoursRepo.GetAll();

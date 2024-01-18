@@ -1,0 +1,66 @@
+﻿@model UniversityProject_Demo.Models.DTOs.EntityStudentPanleDto
+<h1> پنل نمره</h1>
+<table class="table table-hover table-bordered table-responsive w-100">
+    <tr>
+        <td>شناسه</td>
+        <td>نام</td>
+        <td>نام خانوادگی</td>
+        <td>نام کاربری</td>
+        <td>رمز عبور</td>
+        <td>ایمیل</td>
+        <td>زمان</td>
+    </tr>
+        <tr>
+            <td>@Model.student.Id</td>
+            <td>@Model.student.FirstName</td>
+            <td>@Model.student.LastName</td>
+            <td>@Model.student.UserName</td>
+            <td>@Model.student.PassWord</td>
+            <td>@Model.student.Email</td>
+            <td>@Model.student.Time  </td>
+        </tr>
+</table>
+<table class="table table-hover table-bordered table-responsive w-100">
+    <tr>
+        <td>شناسه</td>
+        <td>نام</td>
+        <td>زمان</td>
+        <td>واحد</td>
+        <td>نمره</td>
+        <td>ظرفیت</td>
+        <td>نام استاد</td>
+    </tr>
+    @foreach (var st in Model.Courcess)
+    {
+        <tr>
+            <td>@st.Id</td>
+            <td>@st.Name</td>
+            <td>@st.Time</td>
+            <td>@st.credit</td>
+            <td>@st.Mark</td>
+            <td>@st.capacity</td>
+            <td>@st.lectuerer.LastName</td>
+            <td>
+@*                <form asp-controller="Lecturer" asp-action="GetMark" asp-route-id="@st.Id" method="post">
+                    <input type="submit" class="btn btn-success" value="نمره دادن">
+                </form>*@
+            </td>
+        </tr>
+    }
+</table>
+        @foreach (var st in Model.Courcess)
+    {
+<form class="border border-1 p-5" asp-controller="Lecturer" asp-action="Mark" method="post">
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="@st.Name"></label>
+            <input class="form-control" asp-for="@st.Name" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="@st.Mark"></label>
+            <input class="form-control" asp-for="@st.Mark"  />
+    </div>
+
+    <input type="submit" class="btn btn-success" value="تغییر" />
+    </form>
+    }
